@@ -1,0 +1,125 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script type="text/javascript">
+
+/***********************************************
+* Disable Text Selection script- © Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+function disableSelection(target){
+if (typeof target.onselectstart!="undefined") //IE route
+	target.onselectstart=function(){return false}
+else if (typeof target.style.MozUserSelect!="undefined") //Firefox route
+	target.style.MozUserSelect="none"
+else //All other route (ie: Opera)
+	target.onmousedown=function(){return false}
+target.style.cursor = "default"
+}
+
+//Sample usages
+//disableSelection(document.body) //Disable text selection on entire body
+//disableSelection(document.getElementById("mydiv")) //Disable text selection on element with id="mydiv"
+
+</script></head>
+<body style="background:url(images/background2.png);">
+  <img id="search_bar" src="images/searchbarentered.png" />
+
+  <div id="news_container">
+      <div class="news">
+
+          <!-- *****Headline #1 *******************-->
+          <b> EARTHQUAKE IN VANCOUVER</b> <br/>
+          <table style="font-size: 12px;"><tr>
+            <td width=225>Today in Vancouver locals were rocked<br/>
+              By a 6.0 earthquake...</td><td><a href="#">Read More</a></td></tr></table>
+
+      </div>
+
+
+      <div class="news">
+
+          <!-- *****Headline #2 *******************--><strong>HURRICANE OFF WEST COAST</strong><br/>
+          <table style="font-size: 12px;"><tr>
+            <td width=225>Hurricane just off the West Coast, heading towards Vancouver...</td>
+            <td><a href="#">Read More</a></td></tr></table>
+
+
+    </div>
+
+
+      <div class="news">
+
+
+          <b> NULL</b> <br/>
+          <table style="font-size: 12px;"><tr>
+            <td width=225>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lobortis...</td>
+            <td><a href="#">Read More</a></td></tr></table>
+      </div>
+
+      <div class="news">
+
+
+          <b> NULL</b> <br/>
+          <table style="font-size: 12px;"><tr>
+            <td width=225>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lobortis...</td>
+            <td><a href="#">Read More</a></td></tr></table>
+      </div>
+        
+      <div class="news">
+
+
+          <b> NULL</b> <br/>
+          <table style="font-size: 12px;"><tr>
+            <td width=225>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lobortis...</td>
+            <td><a href="#">Read More</a></td></tr></table>
+      </div>
+
+
+      <div class="news">
+
+
+          <b> NULL</b> <br/>
+          <table style="font-size: 12px;"><tr>
+            <td width=225>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lobortis...</td>
+            <td><a href="#">Read More</a></td></tr></table>
+      </div>
+
+
+      <div class="news">
+
+
+          <b> NULL</b> <br/>
+          <table style="font-size: 12px;"><tr>
+            <td width=225>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lobortis...</td>
+            <td><a href="#">Read More</a></td></tr></table>
+      </div>
+
+
+      <div class="news">
+
+
+          <b> NULL</b> <br/>
+          <table style="font-size: 12px;"><tr>
+            <td width=225>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lobortis...</td>
+            <td><a href="#">Read More</a></td></tr></table>
+      </div>
+
+
+      <div class="news">
+
+
+          <b> NULL</b> <br/>
+          <table style="font-size: 12px;"><tr>
+            <td width=225>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lobortis...</td>
+            <td><a href="#">Read More</a></td></tr></table>
+      </div>
+  </div>
+<script type='text/javascript' src='js/dragscroll.js'></script>
+<script type="text/javascript">
+disableSelection(document.body) //disable text selection on entire body of page
+</script>
+</body>
+</html>

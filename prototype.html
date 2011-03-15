@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Prototype</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
+  </head>
+
+  <body>
+  
+  
+  <div id="background">
+    <div id="screen">
+
+      <!-- Status Bar -->
+      <div id="status_bar">
+        <span id="status_left">
+          <img src="images/signal.png" />
+          <span>Carrier</span>
+          <img src="images/wifi.png" />
+        </span>
+        <span id="status_mid">
+          12:45 AM
+        </span>
+        <span id="status_right">
+          <img src="images/battery.png" />
+        </span>
+      </div>
+
+      <!-- Content -->
+      <div id="content">
+      
+            <div id="popup">
+            	<a href="#" onClick="onDisableAlert()"><img src="images/background2.png" style="border: 0; height: 121px; width: 250px;" /></a>
+    		</div>
+        <!-- Navigation Bar -->
+        <div id="navigation_bar">
+          <div id="nav_title"></div>
+        </div>
+
+        <!-- Main Page -->
+        <div id="main_page" class="curr_page">
+          <iframe id="mainiframe" src="main.html" width ="319" height="405" align=right scrolling=no frameborder=0 allowtransparency="true"></iframe>
+        </div>
+
+        <!-- News Page -->
+        <div id="news_page">
+          <iframe id="newsiframe" src="news.html" width="319" height="405" align=right scrolling=no frameborder=0 allowtransparency="true"></iframe>
+        </div>
+
+        <!-- Maps Page -->
+        <div id="maps_page">
+          <iframe id="mapsiframe" src="maps.html" width="319" height="405" align=right scrolling=no frameborder=0 allowtransparency="true"></iframe>
+        </div>
+
+        <!-- Friends Page -->
+        <div id="friends_page">
+          <iframe id="friendslistiframe" src="friendslist.html" width=319 height=405 align=right scrolling=no frameborder=0 allowtransparency="true"></iframe>
+        </div>
+
+        <!-- Disasters Page -->
+        <div id="disasters_page">
+          <iframe id="disastersiframe" src="disasters.html" width=319 height=405 align=right scrolling=no frameborder=0 allowtransparency="true"></iframe>
+        </div>
+
+      </div>
+
+      <!-- Tab Bar -->
+      <div id="tab_bar">
+        <div id="home_tab" class="tab_buttons">
+          <div id="tab_selected">
+            <img src="images/tab_selected.png" />
+          </div>
+          <img src="images/home.png" />
+          <br />
+          Home
+        </div>
+        <div id="news_tab"class="tab_buttons">
+          <img src="images/news.png" />
+          <br />
+          News
+        </div>
+        <div id="maps_tab" class="tab_buttons">
+          <img src="images/maps.png" />
+          <br />
+          Maps
+        </div>
+        <div id="friends_tab" class="tab_buttons">
+          <img src="images/friends.png" />
+          <br />
+          Friends
+        </div>
+        <div id="disasters_tab" class="tab_buttons">
+          <img src="images/disasters.png" />
+          <br />
+          Disasters
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  Disaster Mode - <a href="#" onClick="onDisasterMode()">On</a> / <a href="#" onClick="onDisasterModeOff()">Off</a>
+  <div id="newsexample">News Example</div>
+  <div id="mapexample">Map Example</a>
+
+  
+ 	<script type="text/javascript">
+		function onDisasterMode() {
+			document.getElementById("content").style.backgroundImage = "url(images/disasteroverlay.png)";
+			document.getElementById('popup').style.visibility = 'visible';
+		}
+		function onDisasterModeOff() {
+			document.getElementById("content").style.backgroundImage = "";
+			document.getElementById('popup').style.visibility = 'hidden';
+      document.getElementById("mainiframe").src = "main.html";
+		}
+		function onDisableAlert() {
+			document.getElementById('popup').style.visibility = 'hidden';
+      document.getElementById('mainiframe').src = 'main_alt.html';
+		}
+		function onMapExample() {
+		  document.getElementById("mapsiframe").src = 'mapexample.html';
+		}
+		function onNewsExample() {
+		  document.getElementById("newsiframe").src = 'newsexample.html';
+		}
+	</script>
+
+  <script type="text/javascript">
+
+    function resetDiv() {
+      var f = document.getElementById('newsexample');
+      f.innerHTML = 'News Example';
+      f = document.getElementById('mapexample');
+      f.innerHTML = 'Map Example';
+    }
+    /* Tab click event handler. */
+    $(document).ready(function() {
+      $('.tab_buttons').click(function() {
+        $('#tab_selected').prependTo(this);
+
+        $('.curr_page').hide();
+        $('.curr_page').removeClass('curr_page');
+
+        $('#navigation_bar').hide();
+
+        switch($(this).attr('id')) {
+          case "home_tab":
+            $('#main_page').show();
+            $('#main_page').addClass('curr_page');
+            var f = document.getElementById('mainiframe');
+            f.src = 'main.html';
+            resetDiv();
+            break;
+          case "news_tab":
+            $('#news_page').show();
+            $('#news_page').addClass('curr_page');
+            var f = document.getElementById('newsiframe');
+            f.src = 'news.html';
+            resetDiv();
+            f = document.getElementById('newsexample');
+            f.innerHTML = '<a href="#" onClick="onNewsExample()">News Example</a>';
+            break;
+          case "maps_tab":
+            $('#maps_page').show();
+            $('#maps_page').addClass('curr_page');
+            var f = document.getElementById('mapsiframe');
+            f.src = 'maps.html';
+            resetDiv();
+            f = document.getElementById('mapexample');
+            f.innerHTML = '<a href="#" onClick="onMapExample()">Map Example</a>';
+            break;
+          case "friends_tab":
+            $('#friends_page').show();
+            $('#friends_page').addClass('curr_page');
+            var f = document.getElementById('friendslistiframe');
+            f.src = 'friendslist.html';
+            resetDiv();
+            break;
+          case "disasters_tab":
+            //$('#navigation_bar').show();
+            //$('#nav_title').text("Disasters");
+            $('#disasters_page').show();
+            $('#disasters_page').addClass('curr_page');
+            var f = document.getElementById('disastersiframe');
+            f.src = 'disasters.html';
+            resetDiv();
+            break;
+        }
+      });
+    });
+  </script>
+
+  </body>
+</html>
